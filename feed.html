@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - 🐾 Pups & Parks™</title>
+    <meta name="description" content="Connect with other dog owners, share photos, and discover local parks and walking routes.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modernization.css">
+    <link rel="stylesheet" href="https://unpkg.com/lucide@latest/font/lucide.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <span class="logo">🐾</span>
+                <span class="brand-text">Pups & Parks™</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                <li><a href="feed.html" class="nav-link active">Community</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="btn btn-secondary">Sign In</button>
+                <button class="btn btn-primary">Start Free Trial</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Feed Layout -->
+    <div class="feed-layout">
+        <div class="container">
+            <div class="feed-grid">
+                <!-- Main Feed -->
+                <main class="feed-main">
+                    <!-- Post Composer -->
+                    <div class="post-composer">
+                        <div class="composer-header">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" 
+                                 alt="Your avatar" class="composer-avatar">
+                            <div class="composer-input">
+                                <textarea placeholder="Share your dog's adventure..." id="postText"></textarea>
+                            </div>
+                        </div>
+                        <div class="composer-actions">
+                            <div class="composer-tools">
+                                <button class="tool-btn" onclick="addPhoto()">
+                                    <i data-lucide="image"></i>
+                                    <span>Photo</span>
+                                </button>
+                                <button class="tool-btn" onclick="addLocation()">
+                                    <i data-lucide="map-pin"></i>
+                                    <span>Location</span>
+                                </button>
+                                <button class="tool-btn" onclick="addTag()">
+                                    <i data-lucide="hash"></i>
+                                    <span>Tag</span>
+                                </button>
+                            </div>
+                            <button class="btn btn-primary" onclick="createPost()">Post</button>
+                        </div>
+                        <input type="file" id="photoInput" accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)">
+                    </div>
+
+                    <!-- Feed Posts -->
+                    <div class="feed-posts" id="feedPosts">
+                        <!-- Sample Post 1 -->
+                        <article class="post-card">
+                            <div class="post-header">
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face" 
+                                         alt="Sarah M." class="user-avatar">
+                                    <div class="user-details">
+                                        <h4>Sarah M.</h4>
+                                        <span class="post-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <button class="post-menu" onclick="showPostMenu(1)">
+                                    <i data-lucide="more-horizontal"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="post-content">
+                                <p>Just had the most amazing walk with Bella at Central Park! The fall colors are absolutely beautiful 🍂🐕 #DogWalking #FallVibes</p>
+                                <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=600&h=400&fit=crop" 
+                                     alt="Dog in park" class="post-image">
+                            </div>
+                            
+                            <div class="post-actions">
+                                <button class="action-btn liked" onclick="toggleLike(1)">
+                                    <i data-lucide="heart"></i>
+                                    <span>24</span>
+                                </button>
+                                <button class="action-btn" onclick="toggleComments(1)">
+                                    <i data-lucide="message-circle"></i>
+                                    <span>8</span>
+                                </button>
+                                <button class="action-btn" onclick="sharePost(1)">
+                                    <i data-lucide="share-2"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+                            
+                            <div class="comments-section" id="comments-1" style="display: none;">
+                                <div class="comments-list">
+                                    <div class="comment">
+                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=30&h=30&fit=crop&crop=face" 
+                                             alt="Mike" class="comment-avatar">
+                                        <div class="comment-content">
+                                            <strong>Mike R.</strong>
+                                            <span>Beautiful photo! Which trail is this?</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment-input">
+                                    <input type="text" placeholder="Add a comment..." 
+                                           onkeypress="if(event.key==='Enter') addComment(1, this.value)">
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Sample Post 2 -->
+                        <article class="post-card">
+                            <div class="post-header">
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face" 
+                                         alt="David L." class="user-avatar">
+                                    <div class="user-details">
+                                        <h4>David L.</h4>
+                                        <span class="post-time">5 hours ago</span>
+                                    </div>
+                                </div>
+                                <button class="post-menu" onclick="showPostMenu(2)">
+                                    <i data-lucide="more-horizontal"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="post-content">
+                                <p>New walker alert! 🎉 Just completed my certification and ready to help your pups get their daily exercise. Serving the Downtown area. DM me for bookings! #NewWalker #DowntownDogs</p>
+                            </div>
+                            
+                            <div class="post-actions">
+                                <button class="action-btn" onclick="toggleLike(2)">
+                                    <i data-lucide="heart"></i>
+                                    <span>15</span>
+                                </button>
+                                <button class="action-btn" onclick="toggleComments(2)">
+                                    <i data-lucide="message-circle"></i>
+                                    <span>3</span>
+                                </button>
+                                <button class="action-btn" onclick="sharePost(2)">
+                                    <i data-lucide="share-2"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Sample Post 3 -->
+                        <article class="post-card">
+                            <div class="post-header">
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=50&h=50&fit=crop&crop=face" 
+                                         alt="Emma K." class="user-avatar">
+                                    <div class="user-details">
+                                        <h4>Emma K.</h4>
+                                        <span class="post-time">1 day ago</span>
+                                    </div>
+                                </div>
+                                <button class="post-menu" onclick="showPostMenu(3)">
+                                    <i data-lucide="more-horizontal"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="post-content">
+                                <p>Max made a new friend at the dog park today! 🐕🐕 It's amazing how dogs can instantly become best buddies. The other pup's name was Luna and they played for hours!</p>
+                                <div class="location-tag">
+                                    <i data-lucide="map-pin"></i>
+                                    <span>Riverside Dog Park</span>
+                                </div>
+                            </div>
+                            
+                            <div class="post-actions">
+                                <button class="action-btn" onclick="toggleLike(3)">
+                                    <i data-lucide="heart"></i>
+                                    <span>32</span>
+                                </button>
+                                <button class="action-btn" onclick="toggleComments(3)">
+                                    <i data-lucide="message-circle"></i>
+                                    <span>12</span>
+                                </button>
+                                <button class="action-btn" onclick="sharePost(3)">
+                                    <i data-lucide="share-2"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="feed-sidebar">
+                    <!-- Suggested Walkers -->
+                    <div class="sidebar-card">
+                        <h3>Suggested Walkers</h3>
+                        <div class="walker-list">
+                            <div class="walker-item">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" 
+                                     alt="Alex" class="walker-avatar">
+                                <div class="walker-info">
+                                    <h4>Alex T.</h4>
+                                    <span>⭐ 4.9 (45 walks)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline">Follow</button>
+                            </div>
+                            
+                            <div class="walker-item">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face" 
+                                     alt="Lisa" class="walker-avatar">
+                                <div class="walker-info">
+                                    <h4>Lisa M.</h4>
+                                    <span>⭐ 4.8 (62 walks)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline">Follow</button>
+                            </div>
+                            
+                            <div class="walker-item">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face" 
+                                     alt="James" class="walker-avatar">
+                                <div class="walker-info">
+                                    <h4>James R.</h4>
+                                    <span>⭐ 5.0 (38 walks)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline">Follow</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trending Parks -->
+                    <div class="sidebar-card">
+                        <h3>Trending Parks</h3>
+                        <div class="park-list">
+                            <div class="park-item">
+                                <div class="park-icon">
+                                    <i data-lucide="tree-pine"></i>
+                                </div>
+                                <div class="park-info">
+                                    <h4>Central Bark</h4>
+                                    <span>24 posts today</span>
+                                </div>
+                            </div>
+                            
+                            <div class="park-item">
+                                <div class="park-icon">
+                                    <i data-lucide="flower-2"></i>
+                                </div>
+                                <div class="park-info">
+                                    <h4>Riverside Park</h4>
+                                    <span>18 posts today</span>
+                                </div>
+                            </div>
+                            
+                            <div class="park-item">
+                                <div class="park-icon">
+                                    <i data-lucide="mountain"></i>
+                                </div>
+                                <div class="park-info">
+                                    <h4>Hilltop Trail</h4>
+                                    <span>12 posts today</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="sidebar-card">
+                        <h3>Community Stats</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">1,247</span>
+                                <span class="stat-label">Active Members</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">892</span>
+                                <span class="stat-label">Walks This Week</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">156</span>
+                                <span class="stat-label">Parks Listed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4.8</span>
+                                <span class="stat-label">Avg Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo">🐾</span>
+                    <span class="brand-text">Pups & Parks™</span>
+                    <p>Walks you can trust. Parks you'll love.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Walkers</a></li>
+                            <li><a href="#">Parks</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Safety</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pups & Parks™. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* ===== FEED PAGE STYLES ===== */
+        .feed-layout {
+            padding: var(--space-32) 0 var(--space-12);
+        }
+
+        .feed-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--space-8);
+            align-items: start;
+        }
+
+        .feed-main {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+
+        .post-composer {
+            border: 4px solid var(--earth-900);
+            padding: var(--space-6);
+            background: white;
+            box-shadow: 6px 6px 0px var(--earth-900);
+        }
+
+        .composer-header {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+
+        .composer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--earth-900);
+        }
+
+        .composer-input {
+            flex: 1;
+        }
+
+        .composer-input textarea {
+            width: 100%;
+            background: var(--earth-50);
+            border: 3px solid var(--earth-900);
+            border-radius: 0;
+            padding: var(--space-4);
+            color: var(--earth-900);
+            font-size: var(--text-base);
+            resize: none;
+            min-height: 80px;
+            font-weight: 500;
+        }
+
+        .composer-input textarea::placeholder {
+            color: var(--earth-600);
+        }
+
+        .composer-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .composer-tools {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .tool-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: var(--earth-100);
+            border: 3px solid var(--earth-900);
+            border-radius: 0;
+            padding: var(--space-2) var(--space-4);
+            color: var(--earth-900);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 700;
+        }
+
+        .tool-btn:hover {
+            background: var(--accent);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px var(--earth-900);
+        }
+
+        .feed-posts {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+
+        .post-card {
+            border: 4px solid var(--earth-900);
+            padding: var(--space-6);
+            background: white;
+            box-shadow: 6px 6px 0px var(--earth-900);
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px var(--earth-900);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--earth-900);
+        }
+
+        .user-details h4 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-1);
+        }
+
+        .post-time {
+            font-size: var(--text-sm);
+            color: var(--earth-600);
+            font-weight: 500;
+        }
+
+        .post-menu {
+            background: none;
+            border: none;
+            color: var(--earth-600);
+            cursor: pointer;
+            padding: var(--space-2);
+            border-radius: 0;
+            transition: all 0.2s ease;
+        }
+
+        .post-menu:hover {
+            background: var(--earth-100);
+            color: var(--earth-900);
+        }
+
+        .post-content {
+            margin-bottom: var(--space-4);
+        }
+
+        .post-content p {
+            margin-bottom: var(--space-4);
+            line-height: 1.6;
+            font-size: var(--text-lg);
+        }
+
+        .post-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border: 3px solid var(--earth-900);
+            margin-top: var(--space-4);
+        }
+
+        .location-tag {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--accent-dark);
+            font-size: var(--text-sm);
+            margin-top: var(--space-3);
+            font-weight: 700;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: var(--space-6);
+            padding-top: var(--space-4);
+            border-top: 2px solid var(--earth-200);
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: none;
+            border: none;
+            color: var(--earth-600);
+            cursor: pointer;
+            padding: var(--space-2);
+            border-radius: 0;
+            transition: all 0.2s ease;
+            font-weight: 700;
+        }
+
+        .action-btn:hover {
+            background: var(--earth-100);
+            color: var(--earth-900);
+        }
+
+        .action-btn.liked {
+            color: #EF4444;
+        }
+
+        .comments-section {
+            padding-top: var(--space-4);
+            border-top: 2px solid var(--earth-200);
+        }
+
+        .comments-list {
+            margin-bottom: var(--space-4);
+        }
+
+        .comment {
+            display: flex;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+        }
+
+        .comment-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--earth-900);
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-content strong {
+            display: block;
+            margin-bottom: var(--space-1);
+            color: var(--accent);
+            font-size: var(--text-sm);
+        }
+
+        .comment-content span {
+            font-size: var(--text-sm);
+            line-height: 1.4;
+        }
+
+        .comment-input input {
+            width: 100%;
+            background: var(--earth-50);
+            border: 3px solid var(--earth-900);
+            border-radius: 0;
+            padding: var(--space-3);
+            color: var(--earth-900);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+
+        .comment-input input::placeholder {
+            color: var(--earth-600);
+        }
+
+        /* Sidebar */
+        .feed-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-card {
+            border: 4px solid var(--earth-900);
+            padding: var(--space-6);
+            background: white;
+            box-shadow: 6px 6px 0px var(--earth-900);
+        }
+
+        .sidebar-card h3 {
+            margin-bottom: var(--space-4);
+            color: var(--accent);
+            font-size: var(--text-xl);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .walker-list,
+        .park-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        .walker-item,
+        .park-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .walker-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--earth-900);
+        }
+
+        .walker-info {
+            flex: 1;
+        }
+
+        .walker-info h4 {
+            margin-bottom: var(--space-1);
+            font-size: var(--text-base);
+        }
+
+        .walker-info span {
+            font-size: var(--text-xs);
+            color: var(--earth-600);
+            font-weight: 500;
+        }
+
+        .park-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--earth-100);
+            border: 3px solid var(--earth-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .park-info h4 {
+            margin-bottom: var(--space-1);
+            font-size: var(--text-base);
+        }
+
+        .park-info span {
+            font-size: var(--text-xs);
+            color: var(--earth-600);
+            font-weight: 500;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: var(--space-3);
+            background: var(--earth-50);
+            border: 2px solid var(--earth-900);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: var(--text-2xl);
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .stat-label {
+            font-size: var(--text-xs);
+            color: var(--earth-600);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .feed-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feed-sidebar {
+                position: static;
+            }
+        }
+    </style>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
