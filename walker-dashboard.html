@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Walker dashboard - 🐾 Pups & Parks™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/modernization.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lucide@latest/font/lucide.min.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav-brand"><span class="logo">🐾</span><span class="brand-text">Pups & Parks™</span></div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="walker-dashboard.html" class="nav-link active">Walker dashboard</a></li>
+        <li><a href="feed.html" class="nav-link">Community</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-secondary" data-action="signin">Sign In</button>
+        <button class="btn btn-primary" data-action="get-started">Start Free Trial</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="profile-main">
+    <div class="container">
+      <div class="profile-grid">
+        <!-- Subscription & earnings -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon"><i data-lucide="badge-pound-sterling"></i></div>
+            <div class="stat-info"><span class="stat-number">£25</span><span class="stat-label">Monthly subscription</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i data-lucide="wallet"></i></div>
+            <div class="stat-info"><span class="stat-number" id="walkerEarnings">£0.00</span><span class="stat-label">Earnings (month)</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i data-lucide="calendar-check"></i></div>
+            <div class="stat-info"><span class="stat-number" id="walkerBookingsCount">0</span><span class="stat-label">Bookings</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i data-lucide="shield-check"></i></div>
+            <div class="stat-info"><span class="stat-number">Verified</span><span class="stat-label">Trust & safety</span></div>
+          </div>
+        </div>
+
+        <!-- Bookings queue -->
+        <div class="activity-card">
+          <h3>Bookings queue</h3>
+          <div id="walkerBookings"></div>
+          <div class="hero-actions" style="margin-top: var(--space-4);">
+            <button class="btn btn-secondary" id="btnNewBooking">Add test booking</button>
+          </div>
+        </div>
+
+        <!-- Payouts timeline -->
+        <div class="activity-card">
+          <h3>Payouts</h3>
+          <div id="walkerPayouts"></div>
+          <div class="hero-actions" style="margin-top: var(--space-4);">
+            <button class="btn btn-primary" id="btnTriggerPayout">Trigger test payout</button>
+          </div>
+        </div>
+
+        <!-- Social linking -->
+        <div class="settings-card">
+          <h3>Social links</h3>
+          <div class="settings-list">
+            <div class="setting-item">
+              <div class="setting-info"><i data-lucide="instagram"></i><div><strong>Instagram</strong><span>@yourhandle</span></div></div>
+              <input id="socialInstagram" placeholder="https://instagram.com/yourhandle" class="btn btn-secondary" style="width: 360px;" />
+            </div>
+            <div class="setting-item">
+              <div class="setting-info"><i data-lucide="twitter"></i><div><strong>X / Twitter</strong><span>@yourhandle</span></div></div>
+              <input id="socialTwitter" placeholder="https://x.com/yourhandle" class="btn btn-secondary" style="width: 360px;" />
+            </div>
+            <div class="setting-item">
+              <div class="setting-info"><i data-lucide="facebook"></i><div><strong>Facebook</strong><span>Page or profile</span></div></div>
+              <input id="socialFacebook" placeholder="https://facebook.com/yourpage" class="btn btn-secondary" style="width: 360px;" />
+            </div>
+            <div class="setting-item">
+              <div class="setting-info"><i data-lucide="link"></i><div><strong>Website</strong><span>Portfolio or booking page</span></div></div>
+              <input id="socialWebsite" placeholder="https://yourdomain.com" class="btn btn-secondary" style="width: 360px;" />
+            </div>
+          </div>
+          <div class="hero-actions" style="margin-top: var(--space-4);">
+            <button class="btn btn-primary" id="btnSaveSocial">Save</button>
+          </div>
+        </div>
+
+        <!-- Subscription management -->
+        <div class="settings-card">
+          <h3>Subscription</h3>
+          <div class="settings-list">
+            <div class="setting-item">
+              <div class="setting-info"><i data-lucide="credit-card"></i><div><strong>Walker Pro</strong><span>£25/month • Instant payouts • Zero commission</span></div></div>
+              <button class="btn btn-primary" id="btnSubscribe">Subscribe</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand"><span class="logo">🐾</span><span class="brand-text">Pups & Parks™</span><p>Premium dog walking made simple.</p></div>
+        <div class="footer-links">
+          <div class="footer-column"><h4>Product</h4><ul><li><a href="pricing.html">Pricing</a></li><li><a href="feed.html">Community</a></li></ul></div>
+          <div class="footer-column"><h4>Company</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Press</a></li></ul></div>
+          <div class="footer-column"><h4>Support</h4><ul><li><a href="#">Help Center</a></li><li><a href="#">Safety</a></li></ul></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Pups & Parks™. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
