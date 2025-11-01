@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Client dashboard - 🐾 Pups & Parks™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/modernization.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lucide@latest/font/lucide.min.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav-brand"><span class="logo">🐾</span><span class="brand-text">Pups & Parks™</span></div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="client-dashboard.html" class="nav-link active">Client dashboard</a></li>
+        <li><a href="feed.html" class="nav-link">Community</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-secondary" data-action="signin">Sign In</button>
+        <button class="btn btn-primary" data-action="get-started">Get Started</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" style="padding-top: var(--space-32); padding-bottom: var(--space-16);">
+    <h1 class="section-title">Your dashboard</h1>
+
+    <!-- Find near you -->
+    <section class="features" style="padding: var(--space-16) 0;">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i data-lucide="map-pin"></i></div>
+          <h3>Find a walker near you</h3>
+          <p>Use your location or a postcode to see trusted walkers nearby.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="btnGeoWalkers">Use my location</button>
+            <input id="postcodeWalkers" placeholder="Enter postcode or city" class="btn btn-secondary" style="width: 300px;" />
+            <button class="btn btn-secondary" id="btnSearchWalkers">Search</button>
+          </div>
+          <div id="nearbyWalkers" class="feed-posts" style="margin-top: var(--space-6);"></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i data-lucide="tree-pine"></i></div>
+          <h3>Find parks near you</h3>
+          <p>Discover dog‑friendly parks, off‑leash areas and routes.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="btnGeoParks">Use my location</button>
+            <input id="postcodeParks" placeholder="Enter postcode or city" class="btn btn-secondary" style="width: 300px;" />
+            <button class="btn btn-secondary" id="btnSearchParks">Search</button>
+          </div>
+          <div id="nearbyParks" class="feed-posts" style="margin-top: var(--space-6);"></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i data-lucide="message-square"></i></div>
+          <h3>Community</h3>
+          <p>See the latest posts from walkers and owners near you.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="feed.html">Open community feed</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick actions -->
+    <section class="features" style="padding-top: var(--space-12);">
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Upcoming bookings</h3>
+          <p>View or manage upcoming walks.</p>
+          <div id="clientBookings"></div>
+        </div>
+        <div class="feature-card">
+          <h3>Trusted walkers</h3>
+          <p>Saved walkers you’ve favorited.</p>
+          <div id="clientFavorites"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand"><span class="logo">🐾</span><span class="brand-text">Pups & Parks™</span><p>Walks you can trust. Parks you’ll love.</p></div>
+        <div class="footer-links">
+          <div class="footer-column"><h4>Product</h4><ul><li><a href="pricing.html">Pricing</a></li><li><a href="feed.html">Community</a></li></ul></div>
+          <div class="footer-column"><h4>Company</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Press</a></li></ul></div>
+          <div class="footer-column"><h4>Support</h4><ul><li><a href="#">Help Center</a></li><li><a href="#">Safety</a></li></ul></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Pups & Parks™. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
