@@ -1,76 +1,160 @@
-/* ===== Pups & Parks™ Modern Enhancements ===== */
+/* ==========================================================
+   🐾 Pups & Parks™ Modern Enhancements (v2)
+   ========================================================== */
 
-/* Scroll reveal */
+/* ==========================================================
+   Scroll Reveal Animations
+   ========================================================== */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.8s ease forwards;
-}
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
+  animation-delay: var(--delay, 0s);
+  will-change: opacity, transform;
 }
 
-/* Button ripple */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: make reveal trigger only when visible via JS
+   (this class is toggled via IntersectionObserver)
+*/
+.reveal.active {
+  opacity: 1;
+  transform: none;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* ==========================================================
+   Button Ripple Interaction
+   ========================================================== */
 .btn {
   position: relative;
   overflow: hidden;
+  isolation: isolate; /* prevents blending issues */
 }
+
 .btn::after {
   content: '';
   position: absolute;
-  top: 50%; left: 50%;
-  width: 0; height: 0;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
   border-radius: 50%;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-.btn:active::after {
-  width: 300px; height: 300px;
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.8s ease;
+  pointer-events: none;
 }
 
-/* Card hover lift */
-.card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.btn:active::after {
+  width: 250px;
+  height: 250px;
+  opacity: 0;
+  transition: none;
 }
-.card:hover {
+
+/* ==========================================================
+   Card Hover Lift
+   ========================================================== */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.card:hover,
+.card:focus-within {
   transform: translateY(-6px);
   box-shadow: 12px 12px 0 var(--brand-dark);
 }
 
-/* Pricing shimmer */
+/* ==========================================================
+   Pricing Card Shimmer
+   ========================================================== */
 .pricing-card {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
+
 .pricing-card::before {
   content: '';
   position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
-  transform: rotate(45deg);
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg) translateX(-100%) translateY(-100%);
   opacity: 0;
-}
-.pricing-card:hover::before {
-  animation: shimmer 0.6s ease;
-}
-@keyframes shimmer {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+  pointer-events: none;
 }
 
-/* Responsive nav */
+.pricing-card:hover::before,
+.pricing-card:focus-within::before {
+  animation: shimmer 1s ease forwards;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(45deg) translateX(-100%) translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateX(100%) translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================
+   Responsive Navigation
+   ========================================================== */
 @media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .nav ul {
     flex-direction: column;
+    width: 100%;
     gap: 1rem;
+    margin-top: 1rem;
   }
+
+  .nav a {
+    display: block;
+    padding: 0.5rem 0;
+  }
+
   .hero h1 {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
   }
+
   .hero p {
-    font-size: 1rem;
+    font-size: clamp(1rem, 4vw, 1.125rem);
+  }
+}
+
+/* ==========================================================
+   Reduced Motion Preference
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
