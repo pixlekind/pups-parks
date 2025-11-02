@@ -2,174 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing - 🐾 Pups & Parks™</title>
-  <meta name="description" content="Transparent pricing for dog owners and walkers. Free booking for owners, flat subscription for walkers.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing — Pups & Parks™</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/modernization.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/modernization.css" />
 
-  <link rel="stylesheet" href="https://unpkg.com/lucide@latest/font/lucide.min.css">
-
-  <style>
-    body { color:#111827; background:#f9fafb; }
-    p, li, span { color:#374151; line-height:1.7; }
-    h1, h2, h3 { color:#111827; font-weight:700; letter-spacing:-0.02em; }
-    .btn { cursor:pointer; text-decoration:none; }
-  </style>
+  <meta name="description" content="Transparent pricing for dog owners and walkers." />
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="nav container">
-      <div class="nav-brand">
-        <span class="logo">🐾</span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="./assets/img/logo.svg" alt="Pups & Parks logo" width="32" height="32" />
         <span class="brand-text">Pups & Parks™</span>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
-        <li><a href="feed.html" class="nav-link">Community</a></li>
-        <li><a href="profile.html" class="nav-link">Profile</a></li>
-        <li><a href="walker-dashboard.html" class="nav-link">Walker Dashboard</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a href="profile.html" class="btn btn-secondary">Sign In</a>
-        <a href="pricing.html" class="btn btn-primary">Start Free Trial</a>
-      </div>
-    </nav>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html" class="active">Pricing</a></li>
+          <li><a href="feed.html">Community</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- Pricing Hero -->
-  <section class="pricing-hero">
-    <div class="container">
-      <div class="pricing-header">
-        <h1>Simple, transparent pricing</h1>
-        <p>Free booking for dog owners. Flat subscription for walkers with instant payouts. No hidden fees.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Grid -->
-  <section class="pricing-grid">
-    <div class="container">
-      <div class="pricing-cards">
-        <!-- Owner Plan -->
-        <div class="pricing-card glass">
-          <div class="pricing-header">
-            <h3>Dog Owners</h3>
-            <div class="price">
-              <span class="currency">£</span>
-              <span class="amount">0</span>
-              <span class="period">/month</span>
-            </div>
-            <p class="pricing-description">Free booking, no hidden fees</p>
-          </div>
-          <ul class="pricing-features">
-            <li><i data-lucide="check"></i><span>Free booking & scheduling</span></li>
-            <li><i data-lucide="check"></i><span>Access to vetted walkers</span></li>
-            <li><i data-lucide="check"></i><span>Real-time walk updates</span></li>
-            <li><i data-lucide="check"></i><span>Park discovery & reviews</span></li>
-            <li><i data-lucide="check"></i><span>Community access</span></li>
-            <li><i data-lucide="check"></i><span>24/7 customer support</span></li>
-          </ul>
-          <a href="client-dashboard.html" class="btn btn-primary btn-full">Get Started Free</a>
+  <main class="container page-content">
+    <section class="card lift">
+      <h1>Simple, transparent pricing</h1>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h2>Dog Owners</h2>
+          <p><strong>£0/month</strong> — Free booking, no hidden fees</p>
         </div>
-
-        <!-- Walker Plan -->
-        <div class="pricing-card glass featured">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-header">
-            <h3>Dog Walkers</h3>
-            <div class="price">
-              <span class="currency">£</span>
-              <span class="amount">25</span>
-              <span class="period">/month</span>
-            </div>
-            <p class="pricing-description">Flat fee, instant payouts, zero commission</p>
-          </div>
-          <ul class="pricing-features">
-            <li><i data-lucide="check"></i><span>Instant payouts (daily)</span></li>
-            <li><i data-lucide="check"></i><span>Zero commission fees</span></li>
-            <li><i data-lucide="check"></i><span>Profile verification</span></li>
-            <li><i data-lucide="check"></i><span>Booking management</span></li>
-            <li><i data-lucide="check"></i><span>Route optimization</span></li>
-            <li><i data-lucide="check"></i><span>Insurance coverage</span></li>
-            <li><i data-lucide="check"></i><span>Customer support</span></li>
-          </ul>
-          <button class="btn btn-primary btn-full" id="btnSubscribeMonthly">Subscribe £25/month</button>
-          <button class="btn btn-secondary btn-full" id="btnSubscribeYearly">Subscribe £250/year</button>
-          <p class="muted" style="margin-top:.5rem">No hidden fees • Cancel anytime</p>
+        <div class="pricing-card featured">
+          <h2>Dog Walkers</h2>
+          <p><strong>£25/month</strong> or <strong>£250/year</strong></p>
+          <p>Flat fee, instant payouts, zero commission</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Trust CTA -->
-  <section class="trust-cta">
-    <div class="container">
-      <div class="trust-cta-content glass">
-        <h2>No hidden fees. Cancel anytime.</h2>
-        <p>Transparent pricing with no surprises. Upgrade, downgrade, or cancel your subscription at any time.</p>
-        <div class="trust-icons">
-          <div class="trust-item"><i data-lucide="shield"></i><span>Secure payments</span></div>
-          <div class="trust-item"><i data-lucide="refresh-cw"></i><span>Flexible plans</span></div>
-          <div class="trust-item"><i data-lucide="headphones"></i><span>24/7 support</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="faq">
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h3>How do instant payouts work for walkers?</h3>
-          <p>Walkers receive payments directly to their bank account within 24 hours of completing a walk. No waiting for weekly or monthly payouts.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Are there really no fees for dog owners?</h3>
-          <p>Yes! Dog owners can book walks completely free. We charge walkers a flat monthly or yearly subscription instead of taking a percentage of their earnings.</p>
-        </div>
-        <div class="faq-item">
-          <h3>What happens if I need to cancel?</h3>
-          <p>You can cancel your subscription at any time from your profile settings. You'll retain access until the end of your billing period.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Is my dog insured during walks?</h3>
-          <p>Yes, all walks include insurance coverage for peace of mind. Our walkers are also bonded and background checked.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>&copy; 2025 Pups & Parks™. All rights reserved.</p>
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2025 Pups & Parks™</span>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    async function subscribe(plan) {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan }),
-      });
-      const data = await res.json();
-      if (data.url) window.location.href = data.url;
-    }
-    document.getElementById("btnSubscribeMonthly")
-      .addEventListener("click", () => subscribe("monthly"));
-    document.getElementById("btnSubscribeYearly")
-      .addEventListener("click", () => subscribe("yearly"));
-  </script>
+  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>
