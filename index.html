@@ -1,245 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐾 Pups & Parks™ - Premium Dog Walking Services</title>
-    <meta name="description" content="Find trusted dog walkers, explore local parks, and join a community of dog lovers. Modern, premium dog walking services with instant booking.">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/modernization.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pups & Parks™ — Walks you can trust</title>
 
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://unpkg.com/lucide@latest/font/lucide.min.css">
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/modernization.css" />
+
+  <meta name="description" content="Pups & Parks™ connects dog owners with trusted walkers and the best parks nearby." />
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 </head>
 <body>
-    <!-- Modern Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav-brand">
-                <span class="logo">🐾</span>
-                <span class="brand-text">Pups & Parks</span>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-                <li><a href="feed.html" class="nav-link">Community</a></li>
-                <li><a href="profile.html" class="nav-link">Profile</a></li>
-            </ul>
-            
-            <div class="nav-actions">
-                <button class="btn btn-secondary">Sign In</button>
-                <button class="btn btn-primary">Get Started</button>
-            </div>
-        </nav>
-    </header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="./assets/img/logo.svg" alt="Pups & Parks logo" width="32" height="32" />
+        <span class="brand-text">Pups & Parks™</span>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="feed.html">Community</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Modern Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        Premium dog walking
-                        <span class="title-highlight">made simple</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Discover trusted walkers, explore beautiful parks, and join a community 
-                        that puts your dog's happiness first. Book instantly with real-time updates.
-                    </p>
-                    
-                    <div class="hero-actions">
-                        <button class="btn btn-primary btn-large">
-                            <span>Book a Walker</span>
-                            <i data-lucide="arrow-right"></i>
-                        </button>
-                        <button class="btn btn-secondary btn-large">
-                            <span>Become a Walker</span>
-                            <i data-lucide="heart"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">5,000+</span>
-                            <span class="stat-label">Happy Dogs</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Trusted Walkers</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">150+</span>
-                            <span class="stat-label">Parks</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="hero-visual">
-                    <div class="hero-card">
-                        <img src="https://images.unsplash.com/photo-1505628346881-b72b27e84530?w=500&h=400&fit=crop" 
-                             alt="Happy dog walking" class="hero-image">
-                        <div class="hero-badge">
-                            <i data-lucide="shield-check"></i>
-                            <span>Verified & Insured</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <main class="container page-content">
+    <section class="hero card lift">
+      <h1>Walks you can trust. Parks you’ll love.</h1>
+      <p>Connecting dog owners with vetted walkers and the best parks nearby.</p>
+      <a href="pricing.html" class="btn btn-primary">See Pricing</a>
     </section>
+  </main>
 
-    <!-- Modern Trust Section -->
-    <section class="trust">
-        <div class="container">
-            <div class="trust-content">
-                <h2 class="section-title">Why dog owners love us</h2>
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <div class="trust-icon">
-                            <i data-lucide="shield-check"></i>
-                        </div>
-                        <h3>Safe & Secure</h3>
-                        <p>Every walker is background checked, insured, and trained in pet first aid</p>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">
-                            <i data-lucide="clock"></i>
-                        </div>
-                        <h3>Instant Booking</h3>
-                        <p>Book walks in seconds with real-time availability and instant confirmation</p>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">
-                            <i data-lucide="map-pin"></i>
-                        </div>
-                        <h3>Local Experts</h3>
-                        <p>Discover dog-friendly parks and trails with our community-driven guides</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2025 Pups & Parks™</span>
+    </div>
+  </footer>
 
-    <!-- Modern Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Everything you need for happy walks</h2>
-            <div class="features-grid">
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <i data-lucide="shield-check"></i>
-                    </div>
-                    <h3>Verified Walkers</h3>
-                    <p>Every walker passes background checks, insurance verification, and pet first aid certification. Your pup is always in safe hands.</p>
-                    <ul class="feature-list">
-                        <li>Background verified</li>
-                        <li>Insured & bonded</li>
-                        <li>Pet first aid certified</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <i data-lucide="map-pin"></i>
-                    </div>
-                    <h3>Park Discovery</h3>
-                    <p>Find dog-friendly parks, trails, and play areas near you. Get real-time updates on conditions and discover new favorites.</p>
-                    <ul class="feature-list">
-                        <li>Local park guides</li>
-                        <li>Off-leash areas map</li>
-                        <li>Community reviews</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <h3>Community Connection</h3>
-                    <p>Connect with other dog owners, share photos, and get recommendations from your local dog-loving community.</p>
-                    <ul class="feature-list">
-                        <li>Photo sharing</li>
-                        <li>Local meetups</li>
-                        <li>Walker reviews</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modern CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to make your dog's day?</h2>
-                <p>Join thousands of happy dogs and their owners who trust Pups & Parks for premium walking experiences.</p>
-                <button class="btn btn-primary btn-large">
-                    <span>Get Started Free</span>
-                    <i data-lucide="arrow-right"></i>
-                </button>
-                <p class="cta-note">No credit card required • Cancel anytime • Free for dog owners</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modern Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo">🐾</span>
-                    <span class="brand-text">Pups & Parks</span>
-                    <p>Premium dog walking made simple. Find trusted walkers and explore beautiful parks together.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Product</h4>
-                        <ul>
-                            <li><a href="#">Find Walkers</a></li>
-                            <li><a href="#">Park Discovery</a></li>
-                            <li><a href="#">Community</a></li>
-                            <li><a href="#">Safety</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Support</h4>
-                        <ul>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Safety Guidelines</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Pups & Parks. Made with ❤️ for dogs everywhere.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modern JavaScript -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="js/app.js"></script>
+  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>
